@@ -124,11 +124,10 @@ char=		'\\' [abefnrtv'"\[\]\\]
 |		!'\\' .
 
 
-errblock=       '~{' < braces* > '}' -
-action=		'{' < braces* > '}' -
+errblock=   '~' < braces > -
+action=		< braces > -
 
-braces=		'{' (!'}' .)* '}'
-|		!'}' .
+braces=		'{' (![{}] . | braces)* '}'
 
 EQUAL=		'=' -
 COLON=		':' -
